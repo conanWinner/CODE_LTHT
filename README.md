@@ -12,6 +12,7 @@ Chương trình mô phỏng thuật toán Banker và RAG
 > B2: Sau khi đã biên dịch thành công, bạn sẽ thấy file `rag`
 
 > B3: Gõ `./rag input` để chạy chương trình
+
     1. input: là file text nằm trong folder "rag_input"
     2. Với input : input_rag1.txt
     3. Minh hoạ: ./rag input_rag1.txt
