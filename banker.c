@@ -132,6 +132,13 @@ int main(int argc, char *argv[])
     int processes[MAX_PROCESSES];
 
     char path_input[100] = "./banker_input/";
+
+    if (argc == 1)
+    {
+        printf("%s", "You need to pass in the input file!\nUsage: ./banker <file_name>\n");
+        return 0;
+    }
+
     strcat(path_input, argv[1]);
     int check_open_file = inputData(path_input, &n, &m, allocation, max, available);
 

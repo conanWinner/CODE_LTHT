@@ -122,6 +122,14 @@ void writeOutput(const char *filename, bool hasDeadlock)
 int main(int argc, char *argv[])
 {
     char path_input[100] = "./rag_input/";
+
+    if (argc == 1)
+    {
+        printf("%s", "You need to pass in the input file!\nUsage: ./rag <file_name>\n");
+        return 0;
+    }
+    
+
     strcat(path_input, argv[1]);
     int check_open_file = inputGraph(path_input);
     if (check_open_file == 0)
