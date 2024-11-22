@@ -20,6 +20,13 @@ bool isSafe(int processes[], int available[], int max[][MAX_RESOURCES], int allo
         work[i] = available[i];
     }
 
+    for (int l = 0; l < m; l++)
+    {
+        printf("%d ", work[l]);
+    }
+
+    printf("%s\n", "");
+
     // Bước 2: Tìm tiến trình có thể hoàn thành
     while (count < n)
     {
@@ -45,6 +52,15 @@ bool isSafe(int processes[], int available[], int max[][MAX_RESOURCES], int allo
                     {
                         work[k] += allocation[p][k]; // Giải phóng tài nguyên
                     }
+
+                    // In tài nguyên đang có sẵn
+                    for (int l = 0; l < m; l++)
+                    {
+                        printf("%d ", work[l]);
+                    }
+
+                    printf("%s\n", "");
+
                     safeSeq[count++] = p;
                     finish[p] = true;
                     found = true;

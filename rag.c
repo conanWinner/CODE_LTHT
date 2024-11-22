@@ -77,7 +77,12 @@ int inputGraph(const char *filename)
     {
         for (int j = 0; j < numProcesses + numResources; j++)
         {
-            fscanf(file, "%d", &graph[i][j]);
+            if (fscanf(file, "%d", &graph[i][j]) != 1)
+            {
+                printf("Error: Missing data in input file at row %d, column %d.\n", i, j);
+                fclose(file);
+                return 0;
+            }
         }
     }
 
@@ -128,7 +133,6 @@ int main(int argc, char *argv[])
         printf("%s", "You need to pass in the input file!\nUsage: ./rag <file_name>\n");
         return 0;
     }
-    
 
     strcat(path_input, argv[1]);
     int check_open_file = inputGraph(path_input);
@@ -144,6 +148,15 @@ int main(int argc, char *argv[])
     char path_output[100] = "./rag_output/";
     strcat(path_output, outputFilename);
     writeOutput(path_output, hasDeadlock);
+
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            printf("%d ", graph[i][j]);
+        }
+        printf("%s", "\n");
+    }
 
     return 0;
 }
